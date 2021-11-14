@@ -2,8 +2,8 @@ server:
   port: 8079
 spring:
   datasource:
-    url: jdbc:postgressql://localhost:5432/springData
-    username:
+    url: jdbc:mysql://localhost:3306/springData
+    username: root
     password:
   jpa:
     hibernate:
