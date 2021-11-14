@@ -36,7 +36,7 @@ public class Student {
     private String firstName;
     @Column( name = "last_name", nullable = false, columnDefinition = "TEXT")
     private String lastName;
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
     @Column(name = "age", nullable = false)
     private Integer age;
