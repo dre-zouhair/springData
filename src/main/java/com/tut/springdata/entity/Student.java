@@ -4,10 +4,10 @@ import lombok.*;
 import lombok.experimental.Accessors;
 
 // use javax.persistence to make it easier to change the JPA implementation in the future
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import java.math.BigInteger;
+
+import static javax.persistence.GenerationType.*;
 
 @Getter
 @Setter
@@ -25,6 +25,10 @@ public class Student {
             sequenceName = "student_sequence",
             initialValue = 2,
             allocationSize = 1 // increase of the sequence
+    )
+    @GeneratedValue(
+            strategy = SEQUENCE, //the type of the value
+            generator = "student_sequence" // specifying which generator to use
     )
     private BigInteger id;
     private String firstName;
