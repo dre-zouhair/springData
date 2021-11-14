@@ -2,12 +2,12 @@ package com.tut.springdata.entity;
 
 import lombok.*;
 import lombok.experimental.Accessors;
-import org.springframework.data.annotation.LastModifiedDate;
 
 // use javax.persistence to make it easier to change the JPA implementation in the future
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.UUID;
+import javax.persistence.SequenceGenerator;
+import java.math.BigInteger;
 
 @Getter
 @Setter
@@ -20,7 +20,13 @@ import java.util.UUID;
 public class Student {
 
     @Id
-    private UUID id;
+    @SequenceGenerator(
+            name = "student_sequence",
+            sequenceName = "student_sequence",
+            initialValue = 2,
+            allocationSize = 1 // increase of the sequence
+    )
+    private BigInteger id;
     private String firstName;
     private String lastName;
     private String email;
