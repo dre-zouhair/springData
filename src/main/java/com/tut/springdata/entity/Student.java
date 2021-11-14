@@ -17,6 +17,11 @@ import static javax.persistence.GenerationType.*;
 // or use @Data instead of this 5 annotations
 @Accessors(chain = true)
 @Entity(name = "student") // to map to a table
+@Table( name = "student",
+        uniqueConstraints = {
+        @UniqueConstraint(name = "student_email_uniq", columnNames = "email")
+        }
+)
 public class Student {
 
     @Id
@@ -36,7 +41,7 @@ public class Student {
     private String firstName;
     @Column( name = "last_name", nullable = false, columnDefinition = "TEXT")
     private String lastName;
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false)
     private String email;
     @Column(name = "age", nullable = false)
     private Integer age;
