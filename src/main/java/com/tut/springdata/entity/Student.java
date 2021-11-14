@@ -15,6 +15,7 @@ import static javax.persistence.GenerationType.*;
 @EqualsAndHashCode
 @RequiredArgsConstructor
 // or use @Data instead of this 5 annotations
+@NoArgsConstructor
 @Accessors(chain = true)
 @Entity(name = "student") // to map to a table
 @Table( name = "student",
@@ -35,14 +36,19 @@ public class Student {
             strategy = SEQUENCE, //the type of the value
             generator = "student_sequence" // specifying which generator to use
     )
+    @NonNull
     @Column(name = "student_id", updatable = false)
     private BigInteger id;
+    @NonNull
     @Column(name = "first_name", nullable = false)
     private String firstName;
+    @NonNull
     @Column( name = "last_name", nullable = false, columnDefinition = "TEXT")
     private String lastName;
+    @NonNull
     @Column(name = "email", nullable = false)
     private String email;
+    @NonNull
     @Column(name = "age", nullable = false)
     private Integer age;
 }
