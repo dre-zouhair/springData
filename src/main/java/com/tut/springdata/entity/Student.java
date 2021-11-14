@@ -16,7 +16,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 // or use @Data instead of this 5 annotations
 @Accessors(chain = true)
-@Entity // to map to a table
+@Entity(name = "student") // to map to a table
 public class Student {
 
     @Id
