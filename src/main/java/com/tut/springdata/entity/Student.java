@@ -30,9 +30,14 @@ public class Student {
             strategy = SEQUENCE, //the type of the value
             generator = "student_sequence" // specifying which generator to use
     )
+    @Column(name = "student_id", updatable = false)
     private BigInteger id;
+    @Column(name = "first_name", nullable = false)
     private String firstName;
+    @Column( name = "last_name", nullable = false, columnDefinition = "TEXT")
     private String lastName;
+    @Column(name = "email", nullable = false)
     private String email;
+    @Column(name = "age", nullable = false)
     private Integer age;
 }
