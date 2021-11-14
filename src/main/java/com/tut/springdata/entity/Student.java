@@ -2,6 +2,7 @@ package com.tut.springdata.entity;
 
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.springframework.data.annotation.LastModifiedDate;
 
 // use javax.persistence to make it easier to change the JPA implementation in the future
 import javax.persistence.Entity;
